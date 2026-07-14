@@ -4,6 +4,43 @@ Command failures and integration errors.
 
 ---
 
+## [ERR-20260714-016] homebrew-unavailable
+
+**Logged**: 2026-07-14T19:29:00+08:00
+**Priority**: low
+**Status**: resolved
+**Area**: infra
+
+### Summary
+
+Homebrew is not installed, so it cannot be used to install GitHub CLI.
+
+### Error
+
+```text
+command not found: brew
+```
+
+### Context
+
+- Installing Homebrew would be disproportionate for one repository creation.
+
+### Suggested Fix
+
+Use an official standalone GitHub CLI release from a temporary directory.
+
+### Metadata
+
+- Reproducible: yes
+- Related Files: none
+
+### Resolution
+
+- **Resolved**: 2026-07-14T19:30:00+08:00
+- **Notes**: Use a temporary architecture-matched GitHub CLI binary.
+
+---
+
 ## [ERR-20260714-015] scope-rewrite-email-domain
 
 **Logged**: 2026-07-14T19:25:00+08:00
