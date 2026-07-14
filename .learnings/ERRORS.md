@@ -4,6 +4,78 @@ Command failures and integration errors.
 
 ---
 
+## [ERR-20260714-013] github-credential-helper-empty
+
+**Logged**: 2026-07-14T19:15:00+08:00
+**Priority**: low
+**Status**: resolved
+**Area**: infra
+
+### Summary
+
+The macOS Git credential helper had no GitHub HTTPS credential available for API-based repository creation.
+
+### Error
+
+```text
+git credential fill returned no usable GitHub username and password
+```
+
+### Context
+
+- No credentials were printed or written to disk.
+- The GitHub connector remains authenticated for supported operations.
+
+### Suggested Fix
+
+Use the authenticated GitHub connector for identity checks and authorize the intended repository owner before creation.
+
+### Metadata
+
+- Reproducible: yes
+- Related Files: `.git/config`
+
+### Resolution
+
+- **Resolved**: 2026-07-14T19:16:00+08:00
+- **Notes**: Connector identity was confirmed separately without exposing credentials.
+
+---
+
+## [ERR-20260714-012] chrome-runtime-process-conflict
+
+**Logged**: 2026-07-14T19:13:00+08:00
+**Priority**: medium
+**Status**: pending
+**Area**: infra
+
+### Summary
+
+The Chrome control runtime could not initialize because the execution environment rejected a duplicate `process` property definition.
+
+### Error
+
+```text
+Cannot redefine property: process
+```
+
+### Context
+
+- The GitHub connector did not provide repository creation.
+- Browser setup failed both before and after resetting its temporary runtime.
+- No browser session, cookies, or local storage were inspected.
+
+### Suggested Fix
+
+Use an authenticated Git credential helper for the GitHub API, or repair the Chrome control runtime outside this project.
+
+### Metadata
+
+- Reproducible: yes
+- Related Files: none
+
+---
+
 ## [ERR-20260714-011] github-cli-unavailable
 
 **Logged**: 2026-07-14T19:10:00+08:00
