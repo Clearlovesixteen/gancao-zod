@@ -2,15 +2,15 @@
 
 ## Goal
 
-Build a private TypeScript monorepo published under the `@gancao` GitHub Packages scope. It standardizes Zod validation results and error messages across React, Express, and NestJS applications.
+Build a private TypeScript monorepo published under the `@clearlovesixteen` GitHub Packages scope. It standardizes Zod validation results and error messages across React, Express, and NestJS applications.
 
 ## Packages
 
-- `@gancao/zod-core`: framework-independent validation, error normalization, locale registration, and synchronous/asynchronous validators.
-- `@gancao/zod-presets`: reusable schemas for identifiers, email, phone numbers, pagination, dates, and environment values.
-- `@gancao/zod-react-hook-form`: a resolver that maps normalized errors to React Hook Form field errors.
-- `@gancao/zod-express`: request validation middleware for body, query, and params.
-- `@gancao/zod-nestjs`: a validation pipe and decorators that convert normalized errors to NestJS HTTP exceptions.
+- `@clearlovesixteen/zod-core`: framework-independent validation, error normalization, locale registration, and synchronous/asynchronous validators.
+- `@clearlovesixteen/zod-presets`: reusable schemas for identifiers, email, phone numbers, pagination, dates, and environment values.
+- `@clearlovesixteen/zod-react-hook-form`: a resolver that maps normalized errors to React Hook Form field errors.
+- `@clearlovesixteen/zod-express`: request validation middleware for body, query, and params.
+- `@clearlovesixteen/zod-nestjs`: a validation pipe and decorators that convert normalized errors to NestJS HTTP exceptions.
 
 Zod and all framework packages are peer dependencies. The core package has no Node.js-only runtime dependency, so it can run in browsers and servers.
 

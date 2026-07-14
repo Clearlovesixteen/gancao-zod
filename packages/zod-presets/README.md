@@ -1,4 +1,4 @@
-# @gancao/zod-presets
+# @clearlovesixteen/zod-presets
 
 Composable Zod schemas for common application inputs.
 
@@ -8,7 +8,7 @@ import {
   paginationSchema,
   phoneSchema,
   uuidSchema,
-} from "@gancao/zod-presets";
+} from "@clearlovesixteen/zod-presets";
 
 paginationSchema.parse({ page: "2", pageSize: "50" });
 emailSchema.parse("  TEAM@GANCAO.COM  ");

@@ -1,4 +1,4 @@
-import type { ValidationError } from "@gancao/zod-core";
+import type { ValidationError } from "@clearlovesixteen/zod-core";
 import type { NextFunction, Request, Response } from "express";
 import type { z } from "zod";
 

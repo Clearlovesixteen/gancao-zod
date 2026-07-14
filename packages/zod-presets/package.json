@@ -1,5 +1,5 @@
 {
-  "name": "@gancao/zod-presets",
+  "name": "@clearlovesixteen/zod-presets",
   "version": "0.1.0",
   "description": "Reusable Zod schemas for Gancao applications",
   "type": "module",
@@ -26,7 +26,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/gancao/gancao-zod.git",
+    "url": "git+https://github.com/Clearlovesixteen/gancao-zod.git",
     "directory": "packages/zod-presets"
   },
   "license": "UNLICENSED",

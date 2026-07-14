@@ -1,9 +1,9 @@
-# @gancao/zod-nestjs
+# @clearlovesixteen/zod-nestjs
 
-NestJS validation pipe and parameter decorators backed by `@gancao/zod-core`.
+NestJS validation pipe and parameter decorators backed by `@clearlovesixteen/zod-core`.
 
 ```ts
-import { ZodBody, ZodParam, ZodQuery } from "@gancao/zod-nestjs";
+import { ZodBody, ZodParam, ZodQuery } from "@clearlovesixteen/zod-nestjs";
 import { z } from "zod";
 
 const bodySchema = z.object({ age: z.coerce.number().int() });

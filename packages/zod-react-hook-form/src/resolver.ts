@@ -1,5 +1,5 @@
-import { validateAsync } from "@gancao/zod-core";
-import type { ValidationError, ValidationOptions } from "@gancao/zod-core";
+import { validateAsync } from "@clearlovesixteen/zod-core";
+import type { ValidationError, ValidationOptions } from "@clearlovesixteen/zod-core";
 import type {
   FieldError,
   FieldErrors,

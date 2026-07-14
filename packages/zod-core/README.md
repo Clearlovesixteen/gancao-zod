@@ -1,9 +1,9 @@
-# @gancao/zod-core
+# @clearlovesixteen/zod-core
 
 Framework-independent Zod validation with normalized, localized result objects.
 
 ```ts
-import { createValidator, z } from "@gancao/zod-core";
+import { createValidator, z } from "@clearlovesixteen/zod-core";
 
 const validateUser = createValidator(
   z.object({ id: z.string().min(1), age: z.coerce.number().int() }),

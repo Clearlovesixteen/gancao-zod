@@ -1,5 +1,5 @@
-import { validateAsync } from "@gancao/zod-core";
-import type { ValidationOptions } from "@gancao/zod-core";
+import { validateAsync } from "@clearlovesixteen/zod-core";
+import type { ValidationOptions } from "@clearlovesixteen/zod-core";
 
 import { RequestValidationError } from "./error.js";
 import type {

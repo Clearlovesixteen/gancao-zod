@@ -1,9 +1,9 @@
-# @gancao/zod-express
+# @clearlovesixteen/zod-express
 
 Express middleware for validating body, query, and route params.
 
 ```ts
-import { validateRequest } from "@gancao/zod-express";
+import { validateRequest } from "@clearlovesixteen/zod-express";
 import { z } from "zod";
 
 app.get(

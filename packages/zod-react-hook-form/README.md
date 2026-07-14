@@ -1,9 +1,9 @@
-# @gancao/zod-react-hook-form
+# @clearlovesixteen/zod-react-hook-form
 
-React Hook Form resolver backed by `@gancao/zod-core`.
+React Hook Form resolver backed by `@clearlovesixteen/zod-core`.
 
 ```ts
-import { gancaoZodResolver } from "@gancao/zod-react-hook-form";
+import { gancaoZodResolver } from "@clearlovesixteen/zod-react-hook-form";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 

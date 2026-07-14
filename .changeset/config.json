@@ -4,11 +4,11 @@
   "commit": false,
   "fixed": [
     [
-      "@gancao/zod-core",
-      "@gancao/zod-presets",
-      "@gancao/zod-react-hook-form",
-      "@gancao/zod-express",
-      "@gancao/zod-nestjs"
+      "@clearlovesixteen/zod-core",
+      "@clearlovesixteen/zod-presets",
+      "@clearlovesixteen/zod-react-hook-form",
+      "@clearlovesixteen/zod-express",
+      "@clearlovesixteen/zod-nestjs"
     ]
   ],
   "access": "restricted",

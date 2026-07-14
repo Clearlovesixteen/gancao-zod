@@ -6,18 +6,18 @@ Private TypeScript validation packages for Gancao React, Express, and NestJS app
 
 | Package | Purpose |
 | --- | --- |
-| `@gancao/zod-core` | Validation results, normalized errors, locales, and validator factories |
-| `@gancao/zod-presets` | IDs, contact details, pagination, ISO dates, and environment values |
-| `@gancao/zod-react-hook-form` | React Hook Form resolver |
-| `@gancao/zod-express` | Express body, query, and params middleware |
-| `@gancao/zod-nestjs` | NestJS validation pipe and parameter decorators |
+| `@clearlovesixteen/zod-core` | Validation results, normalized errors, locales, and validator factories |
+| `@clearlovesixteen/zod-presets` | IDs, contact details, pagination, ISO dates, and environment values |
+| `@clearlovesixteen/zod-react-hook-form` | React Hook Form resolver |
+| `@clearlovesixteen/zod-express` | Express body, query, and params middleware |
+| `@clearlovesixteen/zod-nestjs` | NestJS validation pipe and parameter decorators |
 
 ## Install From GitHub Packages
 
 Create a GitHub token with `read:packages`, then add this configuration to the consuming project's `.npmrc`:
 
 ```ini
-@gancao:registry=https://npm.pkg.github.com
+@clearlovesixteen:registry=https://npm.pkg.github.com
 //npm.pkg.github.com/:_authToken=${GITHUB_PACKAGES_TOKEN}
 ```
 
@@ -25,21 +25,21 @@ Export the token and install only the packages the application needs:
 
 ```bash
 export GITHUB_PACKAGES_TOKEN=github_pat_xxx
-npm install zod @gancao/zod-core
+npm install zod @clearlovesixteen/zod-core
 ```
 
 Framework packages declare their frameworks as peer dependencies. For example:
 
 ```bash
-npm install zod react-hook-form @gancao/zod-react-hook-form
-npm install zod express @gancao/zod-express
-npm install zod @nestjs/common @gancao/zod-nestjs
+npm install zod react-hook-form @clearlovesixteen/zod-react-hook-form
+npm install zod express @clearlovesixteen/zod-express
+npm install zod @nestjs/common @clearlovesixteen/zod-nestjs
 ```
 
 ## Core Validation
 
 ```ts
-import { validate, z } from "@gancao/zod-core";
+import { validate, z } from "@clearlovesixteen/zod-core";
 
 const userSchema = z.object({
   name: z.string().trim(),
@@ -74,7 +74,7 @@ Use `validateAsync` for asynchronous refinements and `createValidator` for a reu
 Built-in locale names are `zh-CN` and `en-US`. The default is `zh-CN`.
 
 ```ts
-import { registerLocale, setDefaultLocale } from "@gancao/zod-core";
+import { registerLocale, setDefaultLocale } from "@clearlovesixteen/zod-core";
 
 registerLocale("gancao", {
   invalid_type: () => "The value has the wrong type",
@@ -90,7 +90,7 @@ Schema-level custom refinement messages are preserved.
 React Hook Form:
 
 ```ts
-import { gancaoZodResolver } from "@gancao/zod-react-hook-form";
+import { gancaoZodResolver } from "@clearlovesixteen/zod-react-hook-form";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 
@@ -101,7 +101,7 @@ const form = useForm({ resolver: gancaoZodResolver(schema) });
 Express:
 
 ```ts
-import { validateRequest } from "@gancao/zod-express";
+import { validateRequest } from "@clearlovesixteen/zod-express";
 import { z } from "zod";
 
 app.post(
@@ -119,7 +119,7 @@ Validation failures are passed to `next` as `RequestValidationError`. Express 5 
 NestJS:
 
 ```ts
-import { ZodBody, ZodParam } from "@gancao/zod-nestjs";
+import { ZodBody, ZodParam } from "@clearlovesixteen/zod-nestjs";
 import { z } from "zod";
 
 const paramsSchema = z.object({ id: z.string().min(1) });

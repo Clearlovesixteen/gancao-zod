@@ -1,5 +1,5 @@
 {
-  "name": "@gancao/zod-express",
+  "name": "@clearlovesixteen/zod-express",
   "version": "0.1.0",
   "description": "Express request validation with normalized Gancao Zod errors",
   "type": "module",
@@ -22,7 +22,7 @@
     "clean": "rm -rf dist"
   },
   "dependencies": {
-    "@gancao/zod-core": "0.1.0"
+    "@clearlovesixteen/zod-core": "0.1.0"
   },
   "peerDependencies": {
     "express": ">=4.18.0 <6",
@@ -30,7 +30,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/gancao/gancao-zod.git",
+    "url": "git+https://github.com/Clearlovesixteen/gancao-zod.git",
     "directory": "packages/zod-express"
   },
   "license": "UNLICENSED",

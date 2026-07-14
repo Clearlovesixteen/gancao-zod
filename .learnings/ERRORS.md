@@ -4,6 +4,82 @@ Command failures and integration errors.
 
 ---
 
+## [ERR-20260714-015] scope-rewrite-email-domain
+
+**Logged**: 2026-07-14T19:25:00+08:00
+**Priority**: low
+**Status**: resolved
+**Area**: tests
+
+### Summary
+
+The npm scope rewrite also changed an unrelated lowercase email domain in a test expectation.
+
+### Error
+
+```text
+Expected team@clearlovesixteen.com, received team@gancao.com
+```
+
+### Context
+
+- The email value is business test data, not an npm package identifier.
+- Full tests detected the accidental replacement before commit.
+
+### Suggested Fix
+
+Restore the email domain and constrain future scope rewrites to package/config contexts.
+
+### Metadata
+
+- Reproducible: yes
+- Related Files: `packages/zod-presets/test/presets.test.ts`
+
+### Resolution
+
+- **Resolved**: 2026-07-14T19:26:00+08:00
+- **Notes**: Restored `team@gancao.com`; package scope remains `@clearlovesixteen`.
+
+---
+
+## [ERR-20260714-014] zsh-newline-file-list
+
+**Logged**: 2026-07-14T19:22:00+08:00
+**Priority**: low
+**Status**: resolved
+**Area**: config
+
+### Summary
+
+A newline-delimited file list stored in a zsh scalar was passed to Perl as one invalid path.
+
+### Error
+
+```text
+Can't open <newline-delimited file list>: No such file or directory
+```
+
+### Context
+
+- The attempted scope rename did not modify any files.
+- Paths need a delimiter that cannot appear in normal filenames.
+
+### Suggested Fix
+
+Stream NUL-delimited paths from `rg -0` to `xargs -0` for bulk rewrites.
+
+### Metadata
+
+- Reproducible: yes
+- Related Files: package manifests, documentation, workflow configuration
+
+### Resolution
+
+- **Resolved**: 2026-07-14T19:23:00+08:00
+- **Notes**: Replaced scalar expansion with a NUL-delimited pipeline.
+
+---
+
 ## [ERR-20260714-013] github-credential-helper-empty
 
 **Logged**: 2026-07-14T19:15:00+08:00
@@ -400,7 +476,7 @@ No test files found
 
 ### Context
 
-- Command: `npm test -w @gancao/zod-core`
+- Command: `npm test -w @clearlovesixteen/zod-core`
 - npm runs the package script with the workspace directory as the current directory.
 
 ### Suggested Fix

@@ -1,8 +1,8 @@
-import { validateAsync } from "@gancao/zod-core";
+import { validateAsync } from "@clearlovesixteen/zod-core";
 import type {
   ValidationError,
   ValidationOptions,
-} from "@gancao/zod-core";
+} from "@clearlovesixteen/zod-core";
 import { BadRequestException } from "@nestjs/common";
 import type { ArgumentMetadata, PipeTransform } from "@nestjs/common";
 import type { z } from "zod";
