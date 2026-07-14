@@ -1,0 +1,48 @@
+import { validateAsync } from "@gancao/zod-core";
+import type {
+  ValidationError,
+  ValidationOptions,
+} from "@gancao/zod-core";
+import { BadRequestException } from "@nestjs/common";
+import type { ArgumentMetadata, PipeTransform } from "@nestjs/common";
+import type { z } from "zod";
+
+export type NestExceptionFactory = (
+  errors: ValidationError[],
+  metadata: ArgumentMetadata,
+) => Error;
+
+export interface NestValidationOptions extends ValidationOptions {
+  exceptionFactory?: NestExceptionFactory;
+}
+
+export class GancaoValidationPipe<TSchema extends z.ZodType>
+  implements PipeTransform<unknown, Promise<z.output<TSchema>>>
+{
+  constructor(
+    private readonly schema: TSchema,
+    private readonly options: NestValidationOptions = {},
+  ) {}
+
+  async transform(
+    value: unknown,
+    metadata: ArgumentMetadata,
+  ): Promise<z.output<TSchema>> {
+    const result = await validateAsync(this.schema, value, this.options);
+
+    if (result.success) {
+      return result.data;
+    }
+
+    if (this.options.exceptionFactory) {
+      throw this.options.exceptionFactory(result.errors, metadata);
+    }
+
+    throw new BadRequestException({
+      statusCode: 400,
+      error: "Bad Request",
+      message: "Validation failed",
+      errors: result.errors,
+    });
+  }
+}

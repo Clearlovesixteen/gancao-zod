@@ -4,6 +4,44 @@ Command failures and integration errors.
 
 ---
 
+## [ERR-20260714-007] nest-decorator-test-placeholder
+
+**Logged**: 2026-07-14T18:45:00+08:00
+**Priority**: low
+**Status**: resolved
+**Area**: tests
+
+### Summary
+
+A placeholder controller parameter in a metadata test violated the unused-variable lint rule.
+
+### Error
+
+```text
+@typescript-eslint/no-unused-vars
+```
+
+### Context
+
+- The parameter decorator is invoked manually with parameter index zero.
+- The controller method does not need a declared runtime parameter for this metadata assertion.
+
+### Suggested Fix
+
+Remove the unused placeholder parameter from the test controller method.
+
+### Metadata
+
+- Reproducible: yes
+- Related Files: `packages/zod-nestjs/test/pipe.test.ts`
+
+### Resolution
+
+- **Resolved**: 2026-07-14T18:46:00+08:00
+- **Notes**: The test method is now parameterless.
+
+---
+
 ## [ERR-20260714-006] express-next-function-mock
 
 **Logged**: 2026-07-14T18:42:00+08:00
