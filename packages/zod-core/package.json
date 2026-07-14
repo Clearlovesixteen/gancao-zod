@@ -1,0 +1,19 @@
+{
+  "name": "@gancao/zod-core",
+  "version": "0.1.0",
+  "description": "Normalized Zod validation results for Gancao applications",
+  "type": "module",
+  "sideEffects": false,
+  "scripts": {
+    "test": "vitest run --root ../.. packages/zod-core/test",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "clean": "rm -rf dist"
+  },
+  "peerDependencies": {
+    "zod": "^4.0.0"
+  },
+  "publishConfig": {
+    "access": "restricted",
+    "registry": "https://npm.pkg.github.com"
+  }
+}
