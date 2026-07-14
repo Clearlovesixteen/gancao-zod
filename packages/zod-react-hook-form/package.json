@@ -1,20 +1,19 @@
 {
-  "name": "@gancao/zod-core",
+  "name": "@gancao/zod-react-hook-form",
   "version": "0.1.0",
-  "description": "Normalized Zod validation results for Gancao applications",
+  "description": "React Hook Form resolver for normalized Gancao Zod validation",
   "type": "module",
   "sideEffects": false,
-  "main": "./src/index.ts",
-  "types": "./src/index.ts",
-  "exports": {
-    ".": "./src/index.ts"
-  },
   "scripts": {
-    "test": "vitest run --root ../.. packages/zod-core/test",
+    "test": "vitest run --root ../.. packages/zod-react-hook-form/test",
     "typecheck": "tsc -p tsconfig.json --noEmit",
     "clean": "rm -rf dist"
   },
+  "dependencies": {
+    "@gancao/zod-core": "0.1.0"
+  },
   "peerDependencies": {
+    "react-hook-form": "^7.0.0",
     "zod": "^4.0.0"
   },
   "publishConfig": {

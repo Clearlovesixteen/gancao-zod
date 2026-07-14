@@ -4,6 +4,44 @@ Command failures and integration errors.
 
 ---
 
+## [ERR-20260714-005] resolver-test-options-type
+
+**Logged**: 2026-07-14T18:40:00+08:00
+**Priority**: low
+**Status**: resolved
+**Area**: tests
+
+### Summary
+
+A shared React Hook Form resolver-options fixture erased schema-specific field names.
+
+### Error
+
+```text
+ResolverOptions<Record<string, unknown>> is not assignable to schema-specific ResolverOptions
+```
+
+### Context
+
+- Runtime resolver tests passed.
+- Strict type checking correctly rejected a broad `Record<string, unknown>` fixture.
+
+### Suggested Fix
+
+Make the fixture factory generic and instantiate it with `z.input<typeof schema>`.
+
+### Metadata
+
+- Reproducible: yes
+- Related Files: `packages/zod-react-hook-form/test/resolver.test.ts`
+
+### Resolution
+
+- **Resolved**: 2026-07-14T18:41:00+08:00
+- **Notes**: Added a generic `resolverOptions<TFieldValues>()` helper.
+
+---
+
 ## [ERR-20260714-004] eslint-unused-rest-fields
 
 **Logged**: 2026-07-14T17:43:00+08:00
