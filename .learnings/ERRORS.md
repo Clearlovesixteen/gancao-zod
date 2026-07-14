@@ -4,6 +4,44 @@ Command failures and integration errors.
 
 ---
 
+## [ERR-20260714-011] github-cli-unavailable
+
+**Logged**: 2026-07-14T19:10:00+08:00
+**Priority**: low
+**Status**: resolved
+**Area**: infra
+
+### Summary
+
+The local machine does not have GitHub CLI installed for repository creation.
+
+### Error
+
+```text
+command not found: gh
+```
+
+### Context
+
+- The GitHub connector can operate on existing repositories but does not expose repository creation.
+- The requested repository still needs to be created under the authenticated GitHub account.
+
+### Suggested Fix
+
+Create the repository through the authenticated GitHub web interface, then push with Git.
+
+### Metadata
+
+- Reproducible: yes
+- Related Files: `.git/config`
+
+### Resolution
+
+- **Resolved**: 2026-07-14T19:11:00+08:00
+- **Notes**: Use the existing authenticated browser session for repository creation.
+
+---
+
 ## [ERR-20260714-010] npm-audit-fix-esbuild
 
 **Logged**: 2026-07-14T18:57:00+08:00
