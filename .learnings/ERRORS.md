@@ -4,6 +4,44 @@ Command failures and integration errors.
 
 ---
 
+## [ERR-20260714-008] yaml-validator-dependency
+
+**Logged**: 2026-07-14T18:53:00+08:00
+**Priority**: low
+**Status**: resolved
+**Area**: infra
+
+### Summary
+
+The workflow validation command assumed the transitive `yaml` package was importable from the project root.
+
+### Error
+
+```text
+ERR_MODULE_NOT_FOUND: Cannot find package 'yaml'
+```
+
+### Context
+
+- The project does not directly depend on a YAML parser.
+- Adding a production or development dependency only for this one-time check is unnecessary.
+
+### Suggested Fix
+
+Use an available system YAML parser for local syntax validation.
+
+### Metadata
+
+- Reproducible: yes
+- Related Files: `.github/workflows/ci.yml`, `.github/workflows/release.yml`
+
+### Resolution
+
+- **Resolved**: 2026-07-14T18:54:00+08:00
+- **Notes**: Validate both workflow files with Ruby's standard YAML library.
+
+---
+
 ## [ERR-20260714-007] nest-decorator-test-placeholder
 
 **Logged**: 2026-07-14T18:45:00+08:00
