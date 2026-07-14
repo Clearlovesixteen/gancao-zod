@@ -4,12 +4,19 @@
   "description": "Normalized Zod validation results for Gancao applications",
   "type": "module",
   "sideEffects": false,
-  "main": "./src/index.ts",
-  "types": "./src/index.ts",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "exports": {
-    ".": "./src/index.ts"
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
   },
+  "files": ["dist", "README.md"],
   "scripts": {
+    "build": "tsup",
     "test": "vitest run --root ../.. packages/zod-core/test",
     "typecheck": "tsc -p tsconfig.json --noEmit",
     "clean": "rm -rf dist"
@@ -17,6 +24,12 @@
   "peerDependencies": {
     "zod": "^4.0.0"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gancao/gancao-zod.git",
+    "directory": "packages/zod-core"
+  },
+  "license": "UNLICENSED",
   "publishConfig": {
     "access": "restricted",
     "registry": "https://npm.pkg.github.com"
