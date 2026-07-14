@@ -1,0 +1,18 @@
+{
+  "$schema": "https://unpkg.com/@changesets/config@3.1.1/schema.json",
+  "changelog": "@changesets/cli/changelog",
+  "commit": false,
+  "fixed": [
+    [
+      "@gancao/zod-core",
+      "@gancao/zod-presets",
+      "@gancao/zod-react-hook-form",
+      "@gancao/zod-express",
+      "@gancao/zod-nestjs"
+    ]
+  ],
+  "access": "restricted",
+  "baseBranch": "main",
+  "updateInternalDependencies": "patch",
+  "ignore": []
+}
