@@ -4,6 +4,83 @@ Command failures and integration errors.
 
 ---
 
+## [ERR-20260714-010] npm-audit-fix-esbuild
+
+**Logged**: 2026-07-14T18:57:00+08:00
+**Priority**: medium
+**Status**: resolved
+**Area**: infra
+
+### Summary
+
+`npm audit fix` could not upgrade a vulnerable development-only esbuild version because upstream tool ranges remained on 0.27.x.
+
+### Error
+
+```text
+esbuild 0.27.3 - 0.28.0: low severity; fix available
+```
+
+### Context
+
+- `tsup@8.5.1` declares `esbuild: ^0.27.0`.
+- The first fixed release reported by npm is `0.28.1`.
+- Production dependency audit already reported zero vulnerabilities.
+
+### Suggested Fix
+
+Use a root override for the fixed esbuild release and verify all development workflows.
+
+### Metadata
+
+- Reproducible: yes
+- Related Files: `package.json`, `package-lock.json`
+
+### Resolution
+
+- **Resolved**: 2026-07-14T18:58:00+08:00
+- **Notes**: Added `overrides.esbuild = 0.28.1`; full tests and builds verify compatibility.
+
+---
+
+## [ERR-20260714-009] npm-mirror-audit-endpoint
+
+**Logged**: 2026-07-14T18:54:00+08:00
+**Priority**: low
+**Status**: resolved
+**Area**: infra
+
+### Summary
+
+The configured npm mirror does not implement npm's security audit endpoint.
+
+### Error
+
+```text
+404 Not Found: /-/npm/v1/security/audits/quick
+```
+
+### Context
+
+- Command: `npm audit --omit=dev`
+- Registry: `https://registry.npmmirror.com`
+
+### Suggested Fix
+
+Run security audits against the official npm registry without changing global npm configuration.
+
+### Metadata
+
+- Reproducible: yes
+- Related Files: `package-lock.json`
+
+### Resolution
+
+- **Resolved**: 2026-07-14T18:55:00+08:00
+- **Notes**: Audit rerun with `--registry https://registry.npmjs.org`.
+
+---
+
 ## [ERR-20260714-008] yaml-validator-dependency
 
 **Logged**: 2026-07-14T18:53:00+08:00
