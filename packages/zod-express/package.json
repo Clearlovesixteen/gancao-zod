@@ -1,0 +1,23 @@
+{
+  "name": "@gancao/zod-express",
+  "version": "0.1.0",
+  "description": "Express request validation with normalized Gancao Zod errors",
+  "type": "module",
+  "sideEffects": false,
+  "scripts": {
+    "test": "vitest run --root ../.. packages/zod-express/test",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "clean": "rm -rf dist"
+  },
+  "dependencies": {
+    "@gancao/zod-core": "0.1.0"
+  },
+  "peerDependencies": {
+    "express": ">=4.18.0 <6",
+    "zod": "^4.0.0"
+  },
+  "publishConfig": {
+    "access": "restricted",
+    "registry": "https://npm.pkg.github.com"
+  }
+}

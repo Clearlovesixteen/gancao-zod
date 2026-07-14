@@ -4,6 +4,44 @@ Command failures and integration errors.
 
 ---
 
+## [ERR-20260714-006] express-next-function-mock
+
+**Logged**: 2026-07-14T18:42:00+08:00
+**Priority**: low
+**Status**: resolved
+**Area**: tests
+
+### Summary
+
+Vitest's generic mock could not represent all Express 5 `NextFunction` overloads.
+
+### Error
+
+```text
+Mock<NextFunction> is not assignable to NextFunction
+```
+
+### Context
+
+- Express 5 supports error values plus the special `"route"` and `"router"` arguments.
+- The runtime behavior was already passing.
+
+### Suggested Fix
+
+Keep an untyped Vitest mock for assertions and cast only the function passed to middleware.
+
+### Metadata
+
+- Reproducible: yes
+- Related Files: `packages/zod-express/test/middleware.test.ts`
+
+### Resolution
+
+- **Resolved**: 2026-07-14T18:43:00+08:00
+- **Notes**: Split `nextMock` from its Express-facing `NextFunction` view.
+
+---
+
 ## [ERR-20260714-005] resolver-test-options-type
 
 **Logged**: 2026-07-14T18:40:00+08:00
