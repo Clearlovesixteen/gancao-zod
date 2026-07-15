@@ -148,11 +148,17 @@ create(
 
 ```bash
 npm install
+npm run format:check
 npm run lint
 npm run typecheck
 npm test
 npm run build
+npm run test:coverage
+npm run check:packages
+npm run audit:production
 ```
+
+`check:packages` 会检查每个 workspace 的发布内容，并分别验证 ESM、CommonJS 和 TypeScript 使用方式。CI 同时要求运行时代码覆盖率达到既定阈值，且生产依赖不存在已知漏洞。
 
 当包的变更会影响使用方时，请创建 changeset：
 

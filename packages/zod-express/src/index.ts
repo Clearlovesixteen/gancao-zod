@@ -1,5 +1,5 @@
-export { RequestValidationError } from "./error.js";
-export { validateRequest } from "./middleware.js";
+export { RequestValidationError } from './error.js';
+export { validateRequest } from './middleware.js';
 export type {
   AsyncRequestHandler,
   InferValidatedRequest,
@@ -9,4 +9,4 @@ export type {
   RequestValidationFailure,
   RequestValidationOptions,
   ValidatedRequestData,
-} from "./types.js";
+} from './types.js';

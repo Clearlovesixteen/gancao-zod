@@ -44,7 +44,6 @@ type ValidationPath = Array<string | number>;
 
 interface ValidationOptions {
   locale?: string;
-  context?: string;
 }
 
 type MessageFormatter = (issue: z.ZodIssue) => string;

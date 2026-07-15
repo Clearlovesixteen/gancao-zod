@@ -1,1 +1,1 @@
-export { gancaoZodResolver } from "./resolver.js";
+export { gancaoZodResolver } from './resolver.js';

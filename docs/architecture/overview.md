@@ -51,3 +51,15 @@ Gancao Zod 采用小型 monorepo 组织。`zod-core` 是唯一的结果协议层
 | `zod-react-hook-form` | Resolver 结果映射 | 表单 UI 与提交逻辑 |
 | `zod-express` | 请求源校验与中间件错误 | 全局错误响应格式 |
 | `zod-nestjs` | Pipe、装饰器与异常工厂 | 控制器业务逻辑 |
+
+## 质量边界
+
+CI 不只验证源码测试，还覆盖 npm 包的实际消费方式：
+
+- Prettier 固定单引号、分号和 2 空格缩进，ESLint 负责类型导入等代码规则。
+- Vitest 同时执行行为测试和覆盖率阈值检查。
+- 每个 workspace 都执行 `npm pack --dry-run`，确认发布文件和 `exports` 配置。
+- 构建产物分别通过 ESM import、CommonJS require 和 TypeScript 类型检查。
+- `npm audit --omit=dev` 保证发布包的生产依赖没有已知漏洞。
+
+VitePress 仅用于本地及 CI 文档构建，不会进入任何发布包的生产依赖。

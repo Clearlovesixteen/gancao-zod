@@ -72,6 +72,7 @@ console.log(getDefaultLocale()); // "product-zh"
 ```
 
 语言字典是 `Partial<Record<string, MessageFormatter>>`。没有定义的 issue code 会回退到默认语言字典。
+设置默认语言前必须先完成注册；名称不存在时会抛出 `RangeError`。即使自定义默认字典不完整，最终仍会回退到内置中文消息。
 
 ## Issue 归一化
 

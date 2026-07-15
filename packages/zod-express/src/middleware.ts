@@ -1,7 +1,7 @@
-import { validateAsync } from "@clearlovesixteen/zod-core";
-import type { ValidationOptions } from "@clearlovesixteen/zod-core";
+import { validateAsync } from '@clearlovesixteen/zod-core';
+import type { ValidationOptions } from '@clearlovesixteen/zod-core';
 
-import { RequestValidationError } from "./error.js";
+import { RequestValidationError } from './error.js';
 import type {
   AsyncRequestHandler,
   InferValidatedRequest,
@@ -10,10 +10,16 @@ import type {
   RequestValidationFailure,
   RequestValidationOptions,
   ValidatedRequestData,
-} from "./types.js";
+} from './types.js';
 
-const requestSources = ["body", "query", "params"] as const;
+const requestSources = ['body', 'query', 'params'] as const;
 
+/**
+ * 创建 Express 请求校验中间件。
+ *
+ * body 和 params 会回写转换结果；Express 5 的 query 是 getter，转换结果从
+ * request.validated.query 读取。
+ */
 export function validateRequest<TSchemas extends RequestSchemas>(
   schemas: TSchemas,
   options: RequestValidationOptions = {},
@@ -53,8 +59,9 @@ export function validateRequest<TSchemas extends RequestSchemas>(
     }
 
     request.validated = parsed as InferValidatedRequest<TSchemas>;
-    if ("body" in parsed) request.body = parsed.body;
-    if ("params" in parsed) request.params = parsed.params as typeof request.params;
+    if ('body' in parsed) request.body = parsed.body;
+    if ('params' in parsed)
+      request.params = parsed.params as typeof request.params;
     next();
   };
 }

@@ -79,3 +79,6 @@ form.formState.errors.users?.[0]?.email
 | 失败 | `{}` | 嵌套字段错误 |
 
 当前 resolver 使用异步校验，因此同步和异步 refinement 都可以使用。
+
+当 `useForm` 设置 `criteriaMode: "all"` 时，每个字段的全部错误会写入
+`FieldError.types`；默认模式只返回该字段的第一条错误。

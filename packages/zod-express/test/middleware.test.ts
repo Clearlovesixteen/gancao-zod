@@ -1,22 +1,19 @@
-import type { NextFunction, Request, Response } from "express";
-import { describe, expect, it, vi } from "vitest";
-import { z } from "zod";
+import type { NextFunction, Request, Response } from 'express';
+import { describe, expect, it, vi } from 'vitest';
+import { z } from 'zod';
 
-import {
-  RequestValidationError,
-  validateRequest,
-} from "../src/index.js";
+import { RequestValidationError, validateRequest } from '../src/index.js';
 
 function response(): Response {
   return {} as Response;
 }
 
-describe("validateRequest", () => {
-  it("parses request sources and exposes transformed values", async () => {
+describe('validateRequest', () => {
+  it('parses request sources and exposes transformed values', async () => {
     const request = {
-      body: { age: "36" },
-      query: { page: "2" },
-      params: { id: "  user-1  " },
+      body: { age: '36' },
+      query: { page: '2' },
+      params: { id: '  user-1  ' },
     } as unknown as Request;
     const nextMock = vi.fn();
     const next = nextMock as unknown as NextFunction;
@@ -31,16 +28,16 @@ describe("validateRequest", () => {
     expect(request.validated).toEqual({
       body: { age: 36 },
       query: { page: 2 },
-      params: { id: "user-1" },
+      params: { id: 'user-1' },
     });
     expect(request.body).toEqual({ age: 36 });
-    expect(request.params).toEqual({ id: "user-1" });
+    expect(request.params).toEqual({ id: 'user-1' });
     expect(nextMock).toHaveBeenCalledWith();
   });
 
-  it("passes normalized failures to Express error middleware", async () => {
+  it('passes normalized failures to Express error middleware', async () => {
     const request = {
-      body: { age: "invalid" },
+      body: { age: 'invalid' },
       query: {},
       params: {},
     } as unknown as Request;
@@ -61,8 +58,8 @@ describe("validateRequest", () => {
         errors: {
           body: [
             expect.objectContaining({
-              code: "invalid_type",
-              field: "age",
+              code: 'invalid_type',
+              field: 'age',
             }),
           ],
         },
@@ -71,7 +68,7 @@ describe("validateRequest", () => {
     expect(request.validated).toBeUndefined();
   });
 
-  it("supports a custom failure handler", async () => {
+  it('supports a custom failure handler', async () => {
     const request = { body: {}, query: {}, params: {} } as unknown as Request;
     const nextMock = vi.fn();
     const next = nextMock as unknown as NextFunction;
@@ -86,7 +83,7 @@ describe("validateRequest", () => {
     expect(onError).toHaveBeenCalledOnce();
     expect(onError.mock.calls[0]?.[0]).toMatchObject({
       success: false,
-      errors: { body: [expect.objectContaining({ field: "name" })] },
+      errors: { body: [expect.objectContaining({ field: 'name' })] },
     });
     expect(nextMock).not.toHaveBeenCalled();
   });
