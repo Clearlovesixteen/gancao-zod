@@ -1,6 +1,6 @@
 {
   "name": "@clearlovesixteen/zod-nestjs",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "NestJS pipes and decorators for normalized Gancao Zod validation",
   "type": "module",
   "sideEffects": false,
@@ -14,7 +14,10 @@
       "require": "./dist/index.cjs"
     }
   },
-  "files": ["dist", "README.md"],
+  "files": [
+    "dist",
+    "README.md"
+  ],
   "scripts": {
     "build": "tsup",
     "test": "vitest run --root ../.. packages/zod-nestjs/test",
@@ -22,7 +25,7 @@
     "clean": "rm -rf dist"
   },
   "dependencies": {
-    "@clearlovesixteen/zod-core": "0.1.0"
+    "@clearlovesixteen/zod-core": "0.2.0"
   },
   "peerDependencies": {
     "@nestjs/common": ">=10.0.0 <12",
