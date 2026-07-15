@@ -2,6 +2,8 @@
 
 面向 Gancao React、Express 和 NestJS 应用的私有 TypeScript 数据校验包。本工具包在保持 Zod Schema 可组合性的同时，为不同应用边界提供统一、稳定的校验结果和错误格式。
 
+**[在线技术文档与使用指南](https://clearlovesixteen.github.io/gancao-zod/)**
+
 ## 包说明
 
 | 包 | 用途 |
