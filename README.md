@@ -4,6 +4,14 @@
 
 **[在线技术文档与使用指南](https://clearlovesixteen.github.io/gancao-zod/)**
 
+## 与原生 Zod 的区别
+
+Gancao Zod **不是 Zod 的替代品或分支**。Schema 定义、类型推导、解析和数据转换仍由 Zod 完成；本工具包在其上增加团队级的结果协议、中文错误、常用预设，以及 React Hook Form、Express 和 NestJS 的统一适配。
+
+原生 Zod 的 `safeParse` 已经可以安全校验数据，但失败结果携带 `ZodError`，不同应用通常还需要分别完成错误格式化、路径转换、语言处理和框架映射。Gancao Zod 将这些重复工作集中为稳定的 `ValidationResult<T>` 和 `ValidationError[]`，让前后端及不同框架共享相同的错误结构。
+
+适合多应用、多框架或需要稳定接口错误协议的项目；单一小型项目如果直接使用 `safeParse` 已经足够，则不必增加这一层。完整说明见[为什么封装 Zod](https://clearlovesixteen.github.io/gancao-zod/guide/why-gancao-zod)。
+
 ## 包说明
 
 | 包 | 用途 |

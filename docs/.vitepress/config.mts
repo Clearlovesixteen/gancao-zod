@@ -50,6 +50,7 @@ export default defineConfig({
         text: "开始使用",
         items: [
           { text: "概览", link: "/guide/getting-started" },
+          { text: "为什么封装 Zod", link: "/guide/why-gancao-zod" },
           { text: "安装与认证", link: "/guide/installation" },
           { text: "校验结果", link: "/guide/validation-result" },
           { text: "错误处理", link: "/guide/error-handling" },

@@ -2,6 +2,8 @@
 
 Gancao Zod 是一组围绕 Zod 4 构建的 TypeScript 包。它的核心目标不是增加另一套 Schema 语法，而是让同一份 Zod Schema 在浏览器、HTTP 服务和 NestJS 控制器中产生一致的结果。
 
+如果你正在判断项目是否真的需要这一层封装，请先阅读[为什么封装 Zod](/guide/why-gancao-zod)。其中包含与原生 `safeParse` 的直接对比、适用场景和引入成本。
+
 ## 选择需要的包
 
 | 使用场景 | 安装包 |
@@ -59,6 +61,7 @@ console.log(result.data);
 
 ## 继续学习
 
+- [为什么封装 Zod](/guide/why-gancao-zod)：了解与原生 Zod 的职责边界。
 - [安装与认证](/guide/installation)：配置 GitHub Packages。
 - [校验结果](/guide/validation-result)：理解成功、失败和类型推导。
 - [错误处理](/guide/error-handling)：统一接口与表单错误。

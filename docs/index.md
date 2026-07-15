@@ -28,6 +28,8 @@ features:
 
 Gancao Zod 不替代 Zod。它把 Schema 作为唯一规则来源，在不同框架之间建立稳定的结果协议。
 
+Zod 负责描述和解析数据，Gancao Zod 负责将解析结果转换为团队统一的应用协议。详细对比请阅读[为什么要封装 Zod](/guide/why-gancao-zod)。
+
 <ArchitectureMap />
 
 ## 两分钟完成第一次校验
