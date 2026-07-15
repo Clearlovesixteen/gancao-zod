@@ -1,34 +1,34 @@
-# Gancao Zod Toolkit
+# Gancao Zod 工具包
 
-Private TypeScript validation packages for Gancao React, Express, and NestJS applications. The toolkit keeps Zod schemas composable while providing one stable validation result and error format across application boundaries.
+面向 Gancao React、Express 和 NestJS 应用的私有 TypeScript 数据校验包。本工具包在保持 Zod Schema 可组合性的同时，为不同应用边界提供统一、稳定的校验结果和错误格式。
 
-## Packages
+## 包说明
 
-| Package | Purpose |
+| 包 | 用途 |
 | --- | --- |
-| `@clearlovesixteen/zod-core` | Validation results, normalized errors, locales, and validator factories |
-| `@clearlovesixteen/zod-presets` | IDs, contact details, pagination, ISO dates, and environment values |
+| `@clearlovesixteen/zod-core` | 校验结果、标准化错误、多语言支持和校验器工厂 |
+| `@clearlovesixteen/zod-presets` | ID、联系方式、分页参数、ISO 日期和环境变量等预设 Schema |
 | `@clearlovesixteen/zod-react-hook-form` | React Hook Form resolver |
-| `@clearlovesixteen/zod-express` | Express body, query, and params middleware |
-| `@clearlovesixteen/zod-nestjs` | NestJS validation pipe and parameter decorators |
+| `@clearlovesixteen/zod-express` | Express body、query 和 params 校验中间件 |
+| `@clearlovesixteen/zod-nestjs` | NestJS 校验管道和参数装饰器 |
 
-## Install From GitHub Packages
+## 从 GitHub Packages 安装
 
-Create a GitHub token with `read:packages`, then add this configuration to the consuming project's `.npmrc`:
+创建一个具有 `read:packages` 权限的 GitHub Token，然后在使用方项目的 `.npmrc` 中添加以下配置：
 
 ```ini
 @clearlovesixteen:registry=https://npm.pkg.github.com
 //npm.pkg.github.com/:_authToken=${GITHUB_PACKAGES_TOKEN}
 ```
 
-Export the token and install only the packages the application needs:
+设置 Token 环境变量，并按需安装应用所需的包：
 
 ```bash
 export GITHUB_PACKAGES_TOKEN=github_pat_xxx
 npm install zod @clearlovesixteen/zod-core
 ```
 
-Framework packages declare their frameworks as peer dependencies. For example:
+各框架适配包将对应框架声明为 peer dependency。例如：
 
 ```bash
 npm install zod react-hook-form @clearlovesixteen/zod-react-hook-form
@@ -36,7 +36,7 @@ npm install zod express @clearlovesixteen/zod-express
 npm install zod @nestjs/common @clearlovesixteen/zod-nestjs
 ```
 
-## Core Validation
+## 核心校验
 
 ```ts
 import { validate, z } from "@clearlovesixteen/zod-core";
@@ -55,7 +55,7 @@ if (result.success) {
 }
 ```
 
-Errors have a stable shape:
+校验错误具有统一、稳定的数据结构：
 
 ```ts
 interface ValidationError {
@@ -67,27 +67,27 @@ interface ValidationError {
 }
 ```
 
-Use `validateAsync` for asynchronous refinements and `createValidator` for a reusable schema validator.
+异步 refinement 请使用 `validateAsync`；需要复用 Schema 校验器时，请使用 `createValidator`。
 
-## Locales
+## 多语言
 
-Built-in locale names are `zh-CN` and `en-US`. The default is `zh-CN`.
+内置语言为 `zh-CN` 和 `en-US`，默认使用 `zh-CN`。
 
 ```ts
 import { registerLocale, setDefaultLocale } from "@clearlovesixteen/zod-core";
 
 registerLocale("gancao", {
-  invalid_type: () => "The value has the wrong type",
+  invalid_type: () => "值的类型不正确",
 });
 
 setDefaultLocale("gancao");
 ```
 
-Schema-level custom refinement messages are preserved.
+Schema 层级定义的自定义 refinement 错误消息会被保留。
 
-## Framework Examples
+## 框架使用示例
 
-React Hook Form:
+### React Hook Form
 
 ```ts
 import { gancaoZodResolver } from "@clearlovesixteen/zod-react-hook-form";
@@ -98,7 +98,7 @@ const schema = z.object({ email: z.email() });
 const form = useForm({ resolver: gancaoZodResolver(schema) });
 ```
 
-Express:
+### Express
 
 ```ts
 import { validateRequest } from "@clearlovesixteen/zod-express";
@@ -114,9 +114,9 @@ app.post(
 );
 ```
 
-Validation failures are passed to `next` as `RequestValidationError`. Express 5 exposes `request.query` through a getter, so transformed query data is available through `request.validated.query`.
+校验失败时，会将 `RequestValidationError` 传给 `next`。Express 5 通过 getter 暴露 `request.query`，因此转换后的 query 数据应通过 `request.validated.query` 获取。
 
-NestJS:
+### NestJS
 
 ```ts
 import { ZodBody, ZodParam } from "@clearlovesixteen/zod-nestjs";
@@ -134,7 +134,7 @@ create(
 }
 ```
 
-## Development
+## 本地开发
 
 ```bash
 npm install
@@ -144,11 +144,10 @@ npm test
 npm run build
 ```
 
-Create a changeset for user-facing package changes:
+当包的变更会影响使用方时，请创建 changeset：
 
 ```bash
 npm run changeset
 ```
 
-Merging changesets into `main` updates the Changesets release pull request. Merging that release pull request publishes the packages to GitHub Packages with the repository `GITHUB_TOKEN`.
-
+将 changeset 合并到 `main` 后，Changesets 会更新发布 Pull Request。合并该发布 Pull Request 后，工作流会使用仓库的 `GITHUB_TOKEN` 将包发布到 GitHub Packages。
