@@ -1,6 +1,6 @@
 {
   "name": "@clearlovesixteen/zod-presets",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Reusable Zod schemas for Gancao applications",
   "type": "module",
   "sideEffects": false,
@@ -14,7 +14,10 @@
       "require": "./dist/index.cjs"
     }
   },
-  "files": ["dist", "README.md"],
+  "files": [
+    "dist",
+    "README.md"
+  ],
   "scripts": {
     "build": "tsup",
     "test": "vitest run --root ../.. packages/zod-presets/test",
