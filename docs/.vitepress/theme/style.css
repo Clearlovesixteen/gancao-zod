@@ -286,17 +286,46 @@
   color: var(--gancao-coral);
 }
 
+.playground-status.is-running {
+  border-color: #96763f;
+  color: #96763f;
+}
+
+.playground-toolbar {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.playground-control-group {
+  min-width: 0;
+}
+
+.playground-control-group:first-child {
+  grid-column: 1 / -1;
+}
+
+.playground-control-group > span {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--vp-c-text-3);
+  font-size: 11px;
+}
+
 .playground-controls {
-  display: inline-flex;
+  display: flex;
+  width: 100%;
   padding: 3px;
   border: 1px solid var(--vp-c-divider);
   border-radius: 6px;
-  margin-bottom: 12px;
   background: var(--vp-c-bg);
 }
 
 .playground-controls button {
+  min-width: 0;
   min-height: 30px;
+  flex: 1 1 auto;
   padding: 0 11px;
   border: 0;
   border-radius: 4px;
@@ -306,8 +335,36 @@
   font-size: 12px;
 }
 
-.playground-controls button:hover {
+.playground-controls button:hover,
+.playground-controls button.is-active {
   background: var(--vp-c-brand-soft);
+  color: var(--vp-c-brand-1);
+}
+
+.playground-controls button.is-active {
+  box-shadow: inset 0 -2px 0 var(--vp-c-brand-1);
+  font-weight: 700;
+}
+
+.playground-example-actions {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.playground-example-actions button {
+  min-height: 30px;
+  padding: 0 12px;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 4px;
+  background: var(--vp-c-bg);
+  color: var(--vp-c-text-2);
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.playground-example-actions button:hover {
+  border-color: var(--vp-c-brand-1);
   color: var(--vp-c-brand-1);
 }
 
@@ -371,6 +428,11 @@
 
 .playground-run:hover {
   background: var(--vp-c-brand-3);
+}
+
+.playground-run:disabled {
+  cursor: wait;
+  opacity: 0.65;
 }
 
 @media (max-width: 760px) {
@@ -445,6 +507,18 @@
 
   .playground-grid {
     grid-template-columns: 1fr;
+  }
+
+  .playground-toolbar {
+    grid-template-columns: 1fr;
+  }
+
+  .playground-controls {
+    overflow-x: auto;
+  }
+
+  .playground-controls button {
+    flex: 1 0 auto;
   }
 
   .playground-pane textarea,

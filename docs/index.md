@@ -10,7 +10,7 @@ hero:
       text: 开始使用
       link: /guide/getting-started
     - theme: alt
-      text: 在线演练
+      text: 前端实验室
       link: /examples/playground
 
 features:
@@ -55,4 +55,4 @@ if (result.success) {
 }
 ```
 
-下一步阅读[快速开始](/guide/getting-started)，或者直接进入[交互式校验](/examples/playground)观察真实输出。
+下一步阅读[快速开始](/guide/getting-started)，或者直接进入[前端校验实验室](/examples/playground)观察 React Hook Form resolver 的真实输出。

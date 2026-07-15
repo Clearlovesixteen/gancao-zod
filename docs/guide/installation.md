@@ -69,7 +69,7 @@ npm install zod @nestjs/common @clearlovesixteen/zod-nestjs
 | Node.js | `>=20` |
 | TypeScript | `^5.7.0` |
 | Zod | `^4.0.0` |
-| React | `^19.0.0` |
+| React | `^16.8.0`、`^17`、`^18` 或 `^19`（由 React Hook Form 支持范围决定） |
 | React Hook Form | `^7.0.0` |
 | Express | `^5.0.0` |
 | NestJS | `^11.0.0` |

@@ -65,4 +65,8 @@ console.log(result.data);
 - [安装与认证](/guide/installation)：配置 GitHub Packages。
 - [校验结果](/guide/validation-result)：理解成功、失败和类型推导。
 - [错误处理](/guide/error-handling)：统一接口与表单错误。
+- [从原生 Zod 迁移](/guide/migration-from-zod)：按页面渐进接入。
+- [Schema 编写规范](/guide/schema-conventions)：统一团队命名和边界。
+- [React Hook Form 最佳实践](/guide/react-hook-form-best-practices)：输入输出类型、字段数组和异步规则。
+- [前端校验实验室](/examples/playground)：在线观察 resolver 的真实结果。
 - [包文档](/packages/zod-core)：查看每个包的完整用法。
